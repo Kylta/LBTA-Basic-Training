@@ -8,15 +8,25 @@
 
 import UIKit
 
-class BookPagerController: UICollectionViewController {
+class BookPagerController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
     override func viewDidLoad() {
-        
-        collectionView?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cellId")
         
         collectionView?.backgroundColor = .white
         
         navigationItem.title = "Book"
+        
+        collectionView?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cellId")
+        
+        let layout = collectionView?.collectionViewLayout as? UICollectionViewFlowLayout
+        layout?.scrollDirection = .horizontal
+        layout?.minimumLineSpacing = 0
+        
+        collectionView?.isPagingEnabled = true
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: view.frame.width, height: view.frame.height)
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -26,7 +36,7 @@ class BookPagerController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellId", for: indexPath)
         
-        cell.backgroundColor = .red
+        cell.backgroundColor = (indexPath.item % 2 == 0) ? .purple : .yellow
         
         return cell
     }
