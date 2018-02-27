@@ -8,16 +8,43 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UITableViewController {
 
     var books: [Book]?
+    let cellId = "cellId"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .red
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
+        
+        navigationItem.title = "Kindle"
+        
+        tableView.tableFooterView = UIView()
         
         setupBooks()
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
+        
+        let book = books?[indexPath.row]
+        
+        cell.textLabel?.text = book?.title
+        
+        return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        guard let count = books?.count else { return 0 }
+        
+        return count
     }
     
     private func setupBooks() {
@@ -35,15 +62,6 @@ class ViewController: UIViewController {
             ])
         
         self.books = [book, book2]
-        
-        guard let books = self.books else { return }
-        
-        for book in books {
-            print(book.title)
-            for page in book.pages {
-                print(page.text)
-            }
-        }
     }
     
 }
