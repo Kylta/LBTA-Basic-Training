@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4628C7C6204554F700540124 /* BookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4628C7C5204554F700540124 /* BookCell.swift */; };
+		46297B132045FF2F00AF7B28 /* BookPagerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46297B122045FF2F00AF7B28 /* BookPagerController.swift */; };
 		46A42FD72044C8360031EB1F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A42FD62044C8360031EB1F /* AppDelegate.swift */; };
 		46A42FD92044C8360031EB1F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A42FD82044C8360031EB1F /* ViewController.swift */; };
 		46A42FDE2044C8360031EB1F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46A42FDD2044C8360031EB1F /* Assets.xcassets */; };
@@ -18,6 +19,7 @@
 
 /* Begin PBXFileReference section */
 		4628C7C5204554F700540124 /* BookCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCell.swift; sourceTree = "<group>"; };
+		46297B122045FF2F00AF7B28 /* BookPagerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookPagerController.swift; sourceTree = "<group>"; };
 		46A42FD32044C8360031EB1F /* LBTA - Basic training.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "LBTA - Basic training.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		46A42FD62044C8360031EB1F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		46A42FD82044C8360031EB1F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -81,6 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				46A42FD82044C8360031EB1F /* ViewController.swift */,
+				46297B122045FF2F00AF7B28 /* BookPagerController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -173,6 +176,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				46297B132045FF2F00AF7B28 /* BookPagerController.swift in Sources */,
 				46A42FD92044C8360031EB1F /* ViewController.swift in Sources */,
 				46A42FD72044C8360031EB1F /* AppDelegate.swift in Sources */,
 				46A42FEB2044C9F10031EB1F /* Page.swift in Sources */,

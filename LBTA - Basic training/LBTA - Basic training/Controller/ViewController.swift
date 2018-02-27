@@ -25,6 +25,13 @@ class ViewController: UITableViewController {
         setupBooks()
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let layout = UICollectionViewFlowLayout()
+        let bookPagerController = BookPagerController(collectionViewLayout: layout)
+        let navController = UINavigationController(rootViewController: bookPagerController)
+        present(navController, animated: true, completion: nil)
+    }
+    
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 86
     }
