@@ -16,5 +16,4 @@ class Page {
         self.number = number
         self.text = text
     }
-    
 }

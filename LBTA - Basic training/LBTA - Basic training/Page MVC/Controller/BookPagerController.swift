@@ -48,5 +48,4 @@ class BookPagerController: UICollectionViewController, UICollectionViewDelegateF
         
         return pageCell
     }
-    
 }
