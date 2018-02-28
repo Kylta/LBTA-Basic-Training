@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4628C7C6204554F700540124 /* BookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4628C7C5204554F700540124 /* BookCell.swift */; };
 		46297B132045FF2F00AF7B28 /* BookPagerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46297B122045FF2F00AF7B28 /* BookPagerController.swift */; };
+		46297B1A20469E4100AF7B28 /* PageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46297B1920469E4100AF7B28 /* PageCell.swift */; };
 		46A42FD72044C8360031EB1F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A42FD62044C8360031EB1F /* AppDelegate.swift */; };
 		46A42FD92044C8360031EB1F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A42FD82044C8360031EB1F /* ViewController.swift */; };
 		46A42FDE2044C8360031EB1F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46A42FDD2044C8360031EB1F /* Assets.xcassets */; };
@@ -20,6 +21,7 @@
 /* Begin PBXFileReference section */
 		4628C7C5204554F700540124 /* BookCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCell.swift; sourceTree = "<group>"; };
 		46297B122045FF2F00AF7B28 /* BookPagerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookPagerController.swift; sourceTree = "<group>"; };
+		46297B1920469E4100AF7B28 /* PageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageCell.swift; sourceTree = "<group>"; };
 		46A42FD32044C8360031EB1F /* LBTA - Basic training.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "LBTA - Basic training.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		46A42FD62044C8360031EB1F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		46A42FD82044C8360031EB1F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -41,6 +43,49 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		46297B1420469AEB00AF7B28 /* Book MVC */ = {
+			isa = PBXGroup;
+			children = (
+				46A42FEF20454AE90031EB1F /* Model */,
+				46A42FEE20454ADD0031EB1F /* View */,
+				46A42FED20454AD60031EB1F /* Controller */,
+			);
+			path = "Book MVC";
+			sourceTree = "<group>";
+		};
+		46297B1520469B0200AF7B28 /* Page MVC */ = {
+			isa = PBXGroup;
+			children = (
+				46297B1820469B2C00AF7B28 /* Model */,
+				46297B1720469B2600AF7B28 /* View */,
+				46297B1620469B2000AF7B28 /* Controller */,
+			);
+			path = "Page MVC";
+			sourceTree = "<group>";
+		};
+		46297B1620469B2000AF7B28 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				46297B122045FF2F00AF7B28 /* BookPagerController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		46297B1720469B2600AF7B28 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				46297B1920469E4100AF7B28 /* PageCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		46297B1820469B2C00AF7B28 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		46A42FCA2044C8360031EB1F = {
 			isa = PBXGroup;
 			children = (
@@ -60,9 +105,8 @@
 		46A42FD52044C8360031EB1F /* LBTA - Basic training */ = {
 			isa = PBXGroup;
 			children = (
-				46A42FEF20454AE90031EB1F /* Model */,
-				46A42FEE20454ADD0031EB1F /* View */,
-				46A42FED20454AD60031EB1F /* Controller */,
+				46297B1420469AEB00AF7B28 /* Book MVC */,
+				46297B1520469B0200AF7B28 /* Page MVC */,
 				46A42FEC20454ACC0031EB1F /* Supporting Files */,
 				46A42FE22044C8360031EB1F /* Info.plist */,
 			);
@@ -83,7 +127,6 @@
 			isa = PBXGroup;
 			children = (
 				46A42FD82044C8360031EB1F /* ViewController.swift */,
-				46297B122045FF2F00AF7B28 /* BookPagerController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -182,6 +225,7 @@
 				46A42FEB2044C9F10031EB1F /* Page.swift in Sources */,
 				46A42FE92044C9070031EB1F /* Book.swift in Sources */,
 				4628C7C6204554F700540124 /* BookCell.swift in Sources */,
+				46297B1A20469E4100AF7B28 /* PageCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
