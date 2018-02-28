@@ -21,4 +21,23 @@ class Book {
         self.image = image
         self.pages = pages
     }
+    
+    init(dictionary: [String: Any]) {
+        self.title = dictionary["title"] as? String ?? ""
+        self.author = dictionary["author"] as? String ?? ""
+        self.image = #imageLiteral(resourceName: "steve_jobs")
+        
+        var bookPages = [Page]()
+        
+        if let pagesDictionaries = dictionary["pages"] as? [[String: Any]] {
+            for pageDictionary in pagesDictionaries {
+                if let pageText = pageDictionary["text"] as? String, let numPage = pageDictionary["id"] as? Int {
+                    let page = Page(number: numPage, text: pageText)
+                    bookPages.append(page)
+                }
+            }
+        }
+        
+        pages = bookPages
+    }
 }
