@@ -10,35 +10,43 @@ import UIKit
 
 class BookPagerController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
+    var book: Book?
+    
     override func viewDidLoad() {
         
         collectionView?.backgroundColor = .white
-        
-        navigationItem.title = "Book"
-        
         collectionView?.register(PageCell.self, forCellWithReuseIdentifier: "cellId")
+        collectionView?.isPagingEnabled = true
         
         let layout = collectionView?.collectionViewLayout as? UICollectionViewFlowLayout
         layout?.scrollDirection = .horizontal
         layout?.minimumLineSpacing = 0
         
-        collectionView?.isPagingEnabled = true
+        navigationItem.title = book?.title
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Close", style: .plain, target: self, action: #selector(handleCloseBook))
+    }
+    
+    @objc func handleCloseBook() {
+        dismiss(animated: true, completion: nil)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: view.frame.width, height: view.frame.height)
+        return CGSize(width: view.frame.width, height: view.frame.height - 64)
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return book?.pages.count ?? 0
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellId", for: indexPath)
+        let pageCell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellId", for: indexPath) as! PageCell
         
-        //cell.backgroundColor = (indexPath.item % 2 == 0) ? .purple : .yellow
+        let page = book?.pages[indexPath.item]
         
-        return cell
+        pageCell.textLabel.text = page?.text
+        pageCell.numberLabel.text = "\(page?.number ?? 0)"
+        
+        return pageCell
     }
     
 }
