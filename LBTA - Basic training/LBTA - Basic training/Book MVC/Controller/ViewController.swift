@@ -23,6 +23,27 @@ class ViewController: UITableViewController {
         tableView.tableFooterView = UIView()
         
         setupBooks()
+        fetchBooks()
+    }
+    
+    func fetchBooks() {
+        print("Fetching books...")
+        
+        guard let url = URL(string: "Https://letsbuildthatapp-videos.s3-us-west-2.amazonaws.com/kindle.json") else { return }
+        
+        URLSession.shared.dataTask(with: url) { (data, response, error) in
+            
+            if let err = error {
+             print("Failed to fetch external json file", err)
+             return
+             }
+            
+            guard let data = data else { return }
+            guard let dataAsString = String(data: data, encoding: .utf8) else { return }
+            print(dataAsString)
+            
+        }.resume()
+        
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
