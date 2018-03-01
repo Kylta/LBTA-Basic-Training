@@ -16,13 +16,45 @@ class ViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupNavigationBarStyles()
+        setupNavBarButton()
+        
         tableView.register(BookCell.self, forCellReuseIdentifier: cellId)
         
         navigationItem.title = "Kindle"
-        
-        tableView.tableFooterView = UIView()
+       /*
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController?.navigationBar.shadowImage = UIImage()
+        navigationController?.navigationBar.isTranslucent = true*/
         
         fetchBooks()
+    }
+    
+    func setupNavigationBarStyles() {
+        
+        navigationController?.navigationBar.barTintColor = UIColor(red: 40/255, green: 40/255, blue: 40/255, alpha: 1)
+        navigationController?.navigationBar.isTranslucent = false
+        
+        let textAttributes = [NSAttributedStringKey.foregroundColor : UIColor.white]
+        navigationController?.navigationBar.titleTextAttributes = textAttributes
+        
+        UIApplication.shared.statusBarStyle = .lightContent
+    }
+    
+    func setupNavBarButton() {
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "menu").withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(handleMenuPress))
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "amazon_icon").withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(handleAmazonPress))
+        
+    }
+    
+    @objc func handleMenuPress() {
+        print("Menu pressed")
+    }
+    
+    @objc func handleAmazonPress() {
+        print("Icon pressed")
     }
     
     func fetchBooks() {
